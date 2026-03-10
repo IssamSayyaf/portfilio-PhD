@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamad Issam Sayyaf — PhD Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --paper: #faf9f6;
+            --accent: #2d5a7b;
+            --accent-light: #4a8bb5;
+            --warm: #c4956a;
+            --warm-light: #e8d5c0;
+            --muted: #6b7280;
+            --border: #e5e2dc;
+            --section-bg: #f5f3ef;
+            --card-bg: #ffffff;
+            --tag-bg: #eef4f8;
+            --tag-text: #2d5a7b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d5a7b 60%, #4a8bb5 100%);
+            color: white;
+            padding: 90px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196,149,106,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(74,139,181,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .hero-photo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 4px solid rgba(255,255,255,0.4);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 0 0 8px rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            flex-shrink: 0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero-photo:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 8px rgba(255,255,255,0.12);
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        .hero .affiliation {
+            font-size: 15px;
+            opacity: 0.65;
+            margin-top: 4px;
+        }
+        .hero-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .hero-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .hero-links a:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* ─── NAV ─── */
+        .nav-bar {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+        .nav-inner a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .nav-inner a:hover, .nav-inner a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ─── SECTIONS ─── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        section:last-child { border-bottom: none; }
+
+        .section-header {
+            margin-bottom: 36px;
+        }
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .section-header .section-line {
+            width: 40px;
+            height: 3px;
+            background: var(--warm);
+            border-radius: 2px;
+        }
+
+        /* ─── RESEARCH SUMMARY ─── */
+        .research-summary {
+            background: var(--section-bg);
+            border-radius: 12px;
+            padding: 32px;
+            border-left: 4px solid var(--accent);
+            font-size: 15px;
+            color: #374151;
+        }
+        .research-summary strong {
+            color: var(--ink);
+        }
+
+        /* ─── PUBLICATIONS ─── */
+        .pub-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+        .pub-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .pub-type {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .pub-type.journal { background: #dbeafe; color: #1e40af; }
+        .pub-type.conference { background: #fef3c7; color: #92400e; }
+        .pub-type.dataset { background: #d1fae5; color: #065f46; }
+        .pub-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--ink);
+        }
+        .pub-authors {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+        .pub-authors .me { font-weight: 700; color: var(--accent); }
+        .pub-venue {
+            font-size: 13px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* ─── CONFERENCES ─── */
+        .conf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .conf-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            position: relative;
+        }
+        .conf-card .conf-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--warm);
+            margin-bottom: 4px;
+        }
+        .conf-card .conf-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .conf-card .conf-loc {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .conf-card .conf-role {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+        .conf-photo-placeholder {
+            width: 100%;
+            height: 120px;
+            background: var(--section-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .conf-photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* ─── EDUCATION ─── */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--paper);
+        }
+        .timeline-item .period {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--warm);
+            margin-bottom: 2px;
+        }
+        .timeline-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .timeline-item .institution {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .timeline-item p {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        /* ─── SKILLS ─── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .skill-category h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 6px;
+        }
+
+        /* ─── CERTIFICATIONS ─── */
+        .cert-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+        }
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--tag-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        .cert-details h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .cert-details .cert-issuer {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ─── PROJECTS ─── */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .project-img {
+            width: 100%;
+            height: 180px;
+            min-height: 180px;
+            max-height: 180px;
+            background: var(--section-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .project-body {
+            padding: 20px;
+        }
+        .project-body h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .project-body p {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .project-tags .tag {
+            font-size: 11px;
+            padding: 3px 8px;
+        }
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .project-link:hover { text-decoration: underline; }
+
+        /* ─── LANGUAGES ─── */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .lang-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .lang-flag {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        .lang-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .lang-card .lang-level {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .lang-bar-bg {
+            width: 100%;
+            height: 4px;
+            background: var(--section-bg);
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .lang-bar {
+            height: 100%;
+            border-radius: 2px;
+            background: var(--accent);
+        }
+        .lang-flag img {
+            width: 42px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ─── TEACHING ─── */
+        .teaching-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+        }
+        .teaching-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .teaching-item .teaching-meta {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ─── OPEN SCIENCE ─── */
+        .open-science-box {
+            background: linear-gradient(135deg, #eef4f8 0%, #f5f3ef 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+        }
+        .open-science-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .open-science-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .open-science-box li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #374151;
+            padding-left: 20px;
+            position: relative;
+        }
+        .open-science-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .open-science-box a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .open-science-box a:hover { text-decoration: underline; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 40px;
+            font-size: 13px;
+        }
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        /* ─── PRINT ─── */
+        @media print {
+            .nav-bar { display: none; }
+            section { page-break-inside: avoid; }
+            .hero { padding: 40px 0; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-top { flex-direction: column; text-align: center; }
+            .hero-photo { width: 140px; height: 140px; }
+            .hero-links { justify-content: center; }
+            .hero h1 { font-size: 32px; }
+            .container { padding: 0 20px; }
+            .skills-grid, .project-grid, .conf-grid, .lang-grid { grid-template-columns: 1fr; }
+            .nav-inner a { padding: 12px 14px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-top">
+            <div class="hero-photo">
+               <img src="images/issam-sayyaf.png" alt="Issam Sayyaf"> 
+               
+            </div>
+            <div>
+                <h1>Mohamad Issam Sayyaf</h1>
+                <div class="subtitle">PhD Candidate — Signal Processing &amp; Embedded Systems</div>
+                <div class="affiliation">GEOLOC Laboratory, Université Gustave Eiffel, Nantes, France</div>
+                <div class="hero-links">
+                    <a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ">Google Scholar</a>
+                    <a href="https://github.com/IssamSayyaf">GitHub</a>
+                    <a href="https://www.linkedin.com/in/issamsayyaf/">LinkedIn</a>
+                    <a href="https://orcid.org/0000-0002-6359-3320">ORCID</a>
+                    <a href="https://issam-sayyaf.com">Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="nav-bar">
+    <div class="nav-inner">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Technical Skills</a>
+        <!-- <a href="#certifications">Certifications</a> -->
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#languages">Languages</a>
+        <!-- <a href="#open-science">Open Science</a> -->
+    </div>
+</nav>
+
+<!-- ═══════════════ RESEARCH SUMMARY ═══════════════ -->
+<section id="research">
+    <div class="container">
+        <div class="section-header">
+            <h2>Research Focus</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="research-summary">
+            <strong>Thesis title:</strong> Physics-Informed Anomaly Detection for Multi-Modal Navigation Systems<br><br>
+            <strong>Supervisors:</strong> Valérie Renaudin (Director), Ni Zhu (Co-supervisor)<br><br>
+            <strong>Laboratory:</strong> GEOLOC, Université Gustave Eiffel, Nantes<br><br>
+            <strong>Defense:</strong> November 2026<br><br>
+            My research proposes a unified anomaly detection methodology applicable across positioning technologies. Developed from observed patterns in IMU-based pedestrian navigation and 5G indoor positioning, the methodology follows four steps: (1) dominant class definition, (2) windowing for stationarity, (3) physics-matched feature extraction, and (4) reconstruction-based anomaly scoring. Its generalizability is validated on GNSS LOS/NLOS identification, confirming that this physics-informed approach transfers to any sensor domain with an underlying theoretical model.
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ PUBLICATIONS ═══════════════ -->
+<section id="publications">
+    <div class="container">
+        <div class="section-header">
+            <h2>Publications</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- Journal 1 -->
+        <div class="pub-item">
+            <span class="pub-type journal">Journal</span>
+            <div class="pub-title">Time-Series Anomaly Detection for Sensor Data: Models, Metrics, and Methodologies — A Review</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, P. Pascacio, N. Zhu, V. Renaudin</div>
+            <div class="pub-venue">IEEE Sensors Journal, vol. 25, no. 24, pp. 43603–43619, 2025</div>
+        </div>
+
+        <!-- Journal 2 -->
+        <div class="pub-item">
+            <span class="pub-type journal">Journal</span>
+            <div class="pub-title">GNSS Positioning Under Threat: The Rising Risk to Existing Systems and the Role of Alternative Indoor and Seamless Navigation Technologies</div>
+            <div class="pub-authors">V. Renaudin, <span class="me">M. I. Sayyaf</span>, F. Le Bourhis, M. Ortiz</div>
+            <div class="pub-venue">IEEE Journal of Indoor and Seamless Positioning and Navigation, pp. 1–15, 2025</div>
+        </div>
+
+        <!-- Conference 1 -->
+        <div class="pub-item">
+            <span class="pub-type conference">Conference</span>
+            <div class="pub-title">Step Detection Enhanced by Anomaly Filtering</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, N. Zhu, V. Renaudin</div>
+            <div class="pub-venue">IEEE APSCON 2024</div>
+        </div>
+
+        <!-- Conference 2 -->
+        <div class="pub-item">
+            <span class="pub-type conference">Conference</span>
+            <div class="pub-title">5G LOS/NLOS Detection Using USAD Models</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, P. Pascacio, N. Zhu, V. Renaudin</div>
+            <div class="pub-venue">ION PLANS / IEEE, 2024</div>
+        </div>
+
+        <!-- Conference 3 -->
+        <div class="pub-item">
+            <span class="pub-type conference">Conference</span>
+            <div class="pub-title">GNSS LOS/NLOS Classification Using Autoencoders</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, N. Zhu, V. Renaudin</div>
+            <div class="pub-venue">IPIN 2025, Tampere, Finland</div>
+        </div>
+
+        <!-- Pre-PhD -->
+        <div class="pub-item">
+            <span class="pub-type conference">Conference (Pre-PhD)</span>
+            <div class="pub-title">Heart Rate Evaluation by Smartphone: An Overview</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, D. L. Carnì, F. Lamonaca</div>
+            <div class="pub-venue">HealthyIoT 2022, pp. 14–25</div>
+        </div>
+
+        <!-- Dataset -->
+        <div class="pub-item">
+            <span class="pub-type dataset">Open Dataset</span>
+            <div class="pub-title">GNSS Dataset Under Jamming, Spoofing, and Meaconing Conditions</div>
+            <div class="pub-authors"><span class="me">M. I. Sayyaf</span>, M. Ortiz, V. Renaudin</div>
+            <div class="pub-venue">Zenodo, 2025 — 845 views, 227 downloads</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CONFERENCES ═══════════════ -->
+<section id="conferences">
+    <div class="container">
+        <div class="section-header">
+            <h2>Conferences &amp; Events</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="conf-grid">
+            <div class="conf-card">
+                <div class="conf-photo-placeholder"><img src="images/I2MTC.png" alt="I2MTC 2026"></div>
+                <div class="conf-year">2026</div>
+                <div class="conf-name">I2MTC 2026</div>
+                <div class="conf-loc">Nanacy, France</div>
+                <div class="conf-role">2 Paper Presentations</div>
+            </div>
+            <div class="conf-card">
+                <div class="conf-photo-placeholder"><img src="images/IPIN.jpeg" alt="IPIN 2025"></div>
+                <div class="conf-year">2025</div>
+                <div class="conf-name">IPIN 2025</div>
+                <div class="conf-loc">Tampere, Finland</div>
+                <div class="conf-role">Paper Presentation</div>
+            </div>
+            <div class="conf-card">
+                <div class="conf-photo-placeholder"><img src="images/papers.jpeg" alt="ION PLANS / IEEE"></div>
+                <div class="conf-year">2024</div>
+                <div class="conf-name">ION PLANS / IEEE</div>
+                <div class="conf-loc">United States</div>
+                <div class="conf-role">Paper Presentation</div>
+            </div>
+            <div class="conf-card">
+                <div class="conf-photo-placeholder"><img src="images/APSCON.svg" alt="IEEE APSCON"></div>
+                <div class="conf-year">2024</div>
+                <div class="conf-name">IEEE APSCON</div>
+                <div class="conf-loc">India</div>
+                <div class="conf-role">Paper Presentation</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ EDUCATION ═══════════════ -->
+<section id="education">
+    <div class="container">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="period">2023 – 2026 (expected)</div>
+                <h3>PhD in Signal Processing and Navigation</h3>
+                <div class="institution">Université Gustave Eiffel — GEOLOC Laboratory, Nantes, France</div>
+                <p>Physics-informed anomaly detection for multi-modal navigation systems (IMU, GNSS, 5G, Wi-Fi).</p>
+            </div>
+            <div class="timeline-item">
+                <div class="period">2020 – 2022</div>
+                <h3>MSc in Telecommunication Engineering — 110/110 cum laude</h3>
+                <div class="institution">University of Calabria, Cosenza, Italy</div>
+                <p>Focus on embedded systems, wireless communications, and IoT measurement systems.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="period">2015 – 2020</div>
+                <h3>BSc in Electronic Engineering</h3>
+                <div class="institution">University of Aleppo, Aleppo, Syria</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TECHNICAL SKILLS ═══════════════ -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="tag-list">
+                    <span class="tag">C</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Bash/Shell</span>
+                    <span class="tag">VHDL</span>
+                    <span class="tag">LaTeX</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Embedded Systems</h3>
+                <div class="tag-list">
+                    <span class="tag">STM32 (Cortex-M & Cortex-A)</span>
+                    <span class="tag">NXP i.MX93</span>
+                    <span class="tag">Linux Kernel Drivers</span>
+                    <span class="tag">U-Boot</span>
+                    <span class="tag">TF-A / OP-TEE</span>
+                    <span class="tag">Device Tree</span>
+                    <span class="tag">SPI / I2C / UART</span>
+                    <span class="tag">RTOS</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Embedded Linux &amp; Build Systems</h3>
+                <div class="tag-list">
+                    <span class="tag">Yocto Project / BitBake</span>
+                    <span class="tag">KAS</span>
+                    <span class="tag">Buildroot</span>
+                    <span class="tag">BSP Development</span>
+                    <span class="tag">SWUpdate (OTA)</span>
+                    <span class="tag">Boot Chain</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Deep Learning &amp; Signal Processing</h3>
+                <div class="tag-list">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Autoencoders (AE, VAE, USAD)</span>
+                    <span class="tag">Time Series Anomaly Detection</span>
+                    <span class="tag">KDE / Adaptive Thresholding</span>
+                    <span class="tag">GNSS Signal Processing</span>
+                    <span class="tag">5G CIR Analysis</span>
+                    <span class="tag">IMU Sensor Fusion</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>FPGA &amp; Hardware Design</h3>
+                <div class="tag-list">
+                    <span class="tag">PYNQ-Z2</span>
+                    <span class="tag">Vivado</span>
+                    <span class="tag">VHDL</span>
+                    <span class="tag">Zynq SoC</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools &amp; DevOps</h3>
+                <div class="tag-list">
+                    <span class="tag">Git / GitHub</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Linux (Ubuntu, Debian)</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Tailscale</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Selected Projects</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- PhD Research Projects -->
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--accent); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--border);">PhD Research Projects</h3>
+        <div class="project-grid" style="margin-bottom:40px;">
+            <div class="project-card">
+                <div class="project-img"><img src="images/step_detection_comparison.png" alt="IMU Anomaly Detection"></div>
+                <div class="project-body">
+                    <h4>Anomaly Detection for IMU-Based Pedestrian Navigation</h4>
+                    <p>Developed a robust step detection system enhanced by anomaly filtering. Uses segment-based autoencoders to distinguish genuine walking signals from motion-induced false steps (mimic walking), improving pedestrian dead reckoning accuracy.</p>
+                    <div class="project-tags">
+                        <span class="tag">Autoencoder</span>
+                        <span class="tag">IMU</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Time Series</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/5g_configuration.png" alt="5G Indoor Setup"></div>
+                <div class="project-body">
+                    <h4>5G LOS/NLOS Detection Using USAD Models</h4>
+                    <p>Semi-supervised anomaly detection for 5G indoor positioning using Channel Impulse Response (CIR) analysis. Achieved F1=0.87 with only 750 parameters, making the model suitable for embedded deployment on resource-constrained devices.</p>
+                    <div class="project-tags">
+                        <span class="tag">5G</span>
+                        <span class="tag">CIR</span>
+                        <span class="tag">USAD</span>
+                        <span class="tag">Semi-supervised</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/fisheye_labeling1.png" alt="GNSS LOS/NLOS Classification"></div>
+                <div class="project-body">
+                    <h4>GNSS LOS/NLOS Classification Using Autoencoders</h4>
+                    <p>Validated the unified four-step methodology on GNSS tracking loop observables (Nantes and Paris datasets). Multi-architecture comparison (Baseline AE, Residual AE, VAE, DeepWeighted AE) with adaptive KDE-based thresholding and probabilistic LOS confidence mapping.</p>
+                    <div class="project-tags">
+                        <span class="tag">GNSS</span>
+                        <span class="tag">Autoencoder</span>
+                        <span class="tag">KDE</span>
+                        <span class="tag">LOS/NLOS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/jammer.png" alt="GNSS Jammertest 2024 Setup"></div>
+                <div class="project-body">
+                    <h4>GNSS Attack Dataset — Jammertest 2024</h4>
+                    <p>Participated in the Jammertest 2024 data collection campaign in Norway. Collected 819 minutes of GNSS recordings under controlled jamming, spoofing, and meaconing attacks at various power levels. Published the dataset on Zenodo (845 views, 227 downloads).</p>
+                    <div class="project-tags">
+                        <span class="tag">GNSS</span>
+                        <span class="tag">Jamming</span>
+                        <span class="tag">Spoofing</span>
+                        <span class="tag">Open Data</span>
+                    </div>
+                    <a class="project-link" href="https://zenodo.org/records/15911359">View on Zenodo →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/J-ISPIN_GraphicAbstract_01.png" alt="GNSS Threat Landscape"></div>
+                <div class="project-body">
+                    <h4>GNSS Threat Landscape Analysis</h4>
+                    <p>Comprehensive investigation of the escalating GNSS threat crisis through real-world case studies covering aviation, maritime, and military domains. Documented how attacks increased sevenfold in contested regions and analyzed the experimental dataset from Jammertest 2024.</p>
+                    <div class="project-tags">
+                        <span class="tag">GNSS Security</span>
+                        <span class="tag">Survey</span>
+                        <span class="tag">IEEE J-ISPIN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/time_series_anomaly_detection.png" alt="Time-Series Anomaly Detection Review"></div>
+                <div class="project-body">
+                    <h4>Time-Series Anomaly Detection Review</h4>
+                    <p>Comprehensive survey of 43 papers (2019–2025) covering Transformers, GNNs, and Attention-based architectures for time-series anomaly detection. Proposed a 6-category taxonomy and identified critical gaps in computational cost reporting and uncertainty quantification.</p>
+                    <div class="project-tags">
+                        <span class="tag">Survey</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">IEEE Sensors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Embedded Systems Projects -->
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--accent); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--border);">Embedded Systems &amp; Engineering Projects</h3>
+        <div class="project-grid" style="margin-bottom:40px;">
+            <div class="project-card">
+                <div class="project-img"><img src="images/st32mp157f.gif" alt="STM32MP157 Board"></div>
+                <div class="project-body">
+                    <h4>STM32MP157 Yocto BSP</h4>
+                    <p>Full custom Linux distribution for STM32MP1 with complete boot chain (TF-A, OP-TEE, U-Boot), custom Yocto layers, device drivers (GPIO, I2C, SPI, UART), device tree overlays, and OTA update system using SWUpdate with A/B partition scheme.</p>
+                    <div class="project-tags">
+                        <span class="tag">Yocto</span>
+                        <span class="tag">STM32MP1</span>
+                        <span class="tag">SWUpdate</span>
+                        <span class="tag">Secure Boot</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/airbox.jpeg" alt="NXP i.MX93 Yocto BSP"></div>
+                <div class="project-body">
+                    <h4>NXP i.MX93 Truck Monitoring BSP</h4>
+                    <p>Custom Yocto-based Linux image for NXP i.MX93 platform targeting truck monitoring. Implemented CAN bus, 5G modem, and GNSS drivers with KAS-managed build configuration and full boot chain customization.</p>
+                    <div class="project-tags">
+                        <span class="tag">NXP i.MX93</span>
+                        <span class="tag">Yocto/KAS</span>
+                        <span class="tag">CAN</span>
+                        <span class="tag">5G</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/Muzziball.jpg" alt="Muzziball Device"></div>
+                <div class="project-body">
+                    <h4>Muzziball — Embedded C++ Sensor Hub</h4>
+                    <p>C++ embedded mini-server (Stener) for the Muzziball device on STM32MP157-DK. Orchestrates serial communication with IMU, LiPo battery, and LED matrix while bridging data exchange between PureData, BLE, and Wi-Fi interfaces.</p>
+                    <div class="project-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">STM32MP1</span>
+                        <span class="tag">BLE</span>
+                        <span class="tag">PureData</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/stm32mp157_gnssdriver.jpeg" alt="MPU-6050 Sensor"></div>
+                <div class="project-body">
+                    <h4>Linux Kernel IIO Driver — MPU-6050</h4>
+                    <p>Custom IIO subsystem driver for the MPU-6050 IMU sensor with I2C communication, interrupt handling, and sysfs interface for real-time accelerometer and gyroscope data acquisition.</p>
+                    <div class="project-tags">
+                        <span class="tag">Linux Kernel</span>
+                        <span class="tag">IIO</span>
+                        <span class="tag">I2C</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/stm32mp157_gnssdriver.jpeg" alt="u-blox GNSS Module on STM32MP157"></div>
+                <div class="project-body">
+                    <h4>GNSS Serdev Driver — u-blox NEO-M8N</h4>
+                    <p>Linux kernel serial device driver for u-blox GNSS receiver, parsing NMEA sentences and exposing position data through the kernel subsystem.</p>
+                    <div class="project-tags">
+                        <span class="tag">Linux Kernel</span>
+                        <span class="tag">GNSS</span>
+                        <span class="tag">Serdev</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/router hack.jpg" alt="TP-Link Router Teardown"></div>
+                <div class="project-body">
+                    <h4>TP-Link Router Reverse Engineering</h4>
+                    <p>Hardware reverse engineering of a TP-Link router (MT7628 SoC): identified UART and SPI interfaces, extracted firmware via SPI flash dump, performed binwalk analysis, and planned firmware modification.</p>
+                    <div class="project-tags">
+                        <span class="tag">Hardware Hacking</span>
+                        <span class="tag">SPI Flash</span>
+                        <span class="tag">Firmware RE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master's / Earlier Projects -->
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--accent); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--border);">Master's &amp; Earlier Projects</h3>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-img"><img src="images/expermints-setup.jpg" alt="Wireless Crack Detection Sensor"></div>
+                <div class="project-body">
+                    <h4>Wireless Crack Detection Sensor (MSc Thesis)</h4>
+                    <p>Designed and realized a wireless crack detection sensor based on IoT and acoustic emission. Developed the complete system: hardware design, edge device firmware, communication protocols, and cloud integration for structural health monitoring.</p>
+                    <div class="project-tags">
+                        <span class="tag">IoT</span>
+                        <span class="tag">Acoustic Emission</span>
+                        <span class="tag">SHM</span>
+                        <span class="tag">Embedded</span>
+                    </div>
+                    <a class="project-link" href="https://issam-sayyaf.com/files/Issam%20Thesis.pdf">View Thesis →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/sdn.png" alt="SDN Load Balancing"></div>
+                <div class="project-body">
+                    <h4>SDN Load Balancing for Video Streaming</h4>
+                    <p>Implemented Dijkstra and Bellman-Ford algorithms on RYU SDN controller for load-balanced face recognition video streaming over wireless networks.</p>
+                    <div class="project-tags">
+                        <span class="tag">SDN</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenFlow</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main">View on GitHub →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="images/breast_cancer.png" alt="Breast Cancer Detection"></div>
+                <div class="project-body">
+                    <h4>Breast Cancer Detection (RSNA)</h4>
+                    <p>Deep learning pipeline for mammogram-based breast cancer screening using the RSNA dataset, with preprocessing and model training in PyTorch.</p>
+                    <div class="project-tags">
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Medical Imaging</span>
+                        <span class="tag">PyTorch</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TEACHING ═══════════════ -->
+<section id="teaching">
+    <div class="container">
+        <div class="section-header">
+            <h2>Teaching &amp; Supervision</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="teaching-item">
+            <h4>Teaching Assistant / Lab Instructor</h4>
+            <div class="teaching-meta">University of Aleppo 2020-2021</div>
+            <p style="font-size:14px; color:#4b5563; margin-top:6px;">
+                Led 50+ lab sessions for 150+ students in antenna design (HFSS/CST), microwave engineering, and RF systems 
+               
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ LANGUAGES ═══════════════ -->
+<section id="languages">
+    <div class="container">
+        <div class="section-header">
+            <h2>Languages</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="lang-grid">
+            <div class="lang-card">
+                <div class="lang-flag">
+                    <img src="images/syria-flag-new.png" alt="Syrian flag">
+                </div>
+                <h4>Arabic</h4>
+                <div class="lang-level">Native</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div>
+            </div>
+            <div class="lang-card">
+                 <div class="lang-flag">
+                    <img src="images/english-flag-new.png" alt="English flag">
+                </div>
+                <h4>English</h4>
+                <div class="lang-level">Fluent (C1)</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:85%"></div></div>
+            </div>
+            <div class="lang-card">
+                 <div class="lang-flag">
+                    <img src="images/french-flag-new.png" alt="French flag">
+                </div>
+                <h4>French</h4>
+                <div class="lang-level">Intermediate (B1)</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:55%"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <p>Mohamad Issam Sayyaf — PhD Portfolio, 2026</p>
+    <p style="margin-top:6px;">
+        <a href="mailto:issamsayyaf97@gmail.com">issamsayyaf97@gmail.com</a> · 
+        <a href="https://issam-sayyaf.com">issam-sayyaf.com</a> · 
+        <a href="https://orcid.org/0000-0002-6359-3320">ORCID</a>
+    </p>
+</footer>
+
+<!-- Smooth scrolling -->
+<script>
+    document.querySelectorAll('.nav-inner a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-inner a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 60;
+            if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
